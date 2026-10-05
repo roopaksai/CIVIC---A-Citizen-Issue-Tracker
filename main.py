@@ -1,17 +1,21 @@
 from config import APP_NAME, APP_VERSION, DEFAULT_WARDS, SLA_HOURS
+import reports
 
-def banner() -> str:
-    title = APP_NAME
-    ver = APP_VERSION
-    
-    return f"""
-    {'=' * 20}
-    {title} ({ver})
-    {'=' * 20}\n"""
+
+issue = {
+    "id": "CIV-001",
+    "title": "Streetlight not working",
+    "category": "electricity",
+    "status": "open",
+}
 
 
 if __name__ == "__main__":
-    print(banner())
+
+    print(reports.render_banner("Civic Issue Report"))
+    print()
+    print(reports.render_issue_card(issue))
+
 
     print("APP_NAME:", type(APP_NAME))
     print("APP_VERSION:", type(APP_VERSION))
